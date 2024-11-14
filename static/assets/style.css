@@ -1,0 +1,173 @@
+@font-face {
+  font-family: "Lexend";
+  src: url("/assets/fonts/lexend.ttf");
+}
+
+:root {
+  --color-body-bg: white;
+
+  --color-text-fg: black;
+  --color-tag-fg: var(--color-text-fg);
+  --color-logo-fg: var(--color-text-fg);
+
+  --color-red: #ffaaaa;
+  --color-green: #aaffaa;
+  --color-blue: #a8d8f8;
+  --color-yellow: #ffff55;
+
+  --block-border-style: solid;
+  --block-border-width: 2px;
+  --block-border-color: black;
+  --block-border-radius: 4px;
+
+  --padding-small: 0.2em;
+  --padding-medium: 0.3em;
+  --padding-big: 0.4em;
+}
+
+* {
+  font-family: "Lexend", sans-serif;
+}
+
+body {
+  margin: auto;
+  max-width: 80ch;
+  background: var(--color-body-bg);
+}
+
+header {
+  margin-bottom: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lexend", sans-serif;
+  font-weight: 900;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.2em;
+}
+
+p {
+  text-align: justify;
+}
+
+a {
+  color: var(--color-text-fg);
+}
+
+nav a {
+  padding: 0 var(--padding-small);
+  text-decoration: none;
+  transition: font-weight 0.1s;
+  margin-right: 0.5em;
+}
+
+nav a:hover {
+  font-weight: bolder;
+  transition: font-weight 0.2s;
+}
+
+p:has(small) {
+  margin-top: 0.3em;
+  margin-bottom: 0.5em;
+}
+
+table {
+  border-collapse: collapse;
+}
+table td,
+table th {
+  padding: 0.3em;
+  border: 1px solid var(--color-text-fg);
+}
+
+/* inverted selection colors */
+::selection {
+  color: var(--color-body-bg);
+  background-color: var(--color-text-fg);
+}
+
+#logo {
+  padding: 0 var(--padding-small);
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.block {
+  border-style: var(--block-border-style);
+  border-width: var(--block-border-width);
+  border-color: var(--block-border-color);
+  border-radius: var(--block-border-radius);
+  padding: var(--padding-small);
+}
+
+.red {
+  background: var(--color-red);
+}
+
+.blue {
+  background: var(--color-blue);
+}
+
+.green {
+  background: var(--color-green);
+}
+
+.yellow {
+  background: var(--color-yellow);
+}
+
+a.tag {
+  text-decoration: none;
+  color: var(--color-tag-fg);
+}
+
+.tag {
+  padding: var(--padding-small) var(--padding-small);
+  transition: font-weight 0.1s;
+}
+
+.tag:hover {
+  font-weight: bold;
+  transition: font-weight 0.2s;
+}
+
+/* post */
+.post-title {
+  margin-bottom: 0;
+}
+
+.post-title a {
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+}
+
+.post-description {
+  margin-top: 0.5em;
+}
+
+.post-entry {
+  margin-bottom: 1.25em;
+}
+
+.post-entry .post-description {
+  margin-top: 0.1em;
+  margin-bottom: 0.2em;
+}
+
+.padding-h-small {
+  padding-left: var(--padding-small);
+  padding-right: var(--padding-small);
+}

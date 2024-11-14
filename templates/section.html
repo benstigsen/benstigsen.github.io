@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'head.html' %}
+        <title>{{ section.title }}</title>
+    </head>
+    <body>
+        {% include 'header.html' %}
+
+        <main>
+            {{ section.content | safe }}
+
+            {% if section.pages %}
+                {% for page in section.pages %}
+                    <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+                    <p><small>{{ page.description }}</small></p>
+                    <p><small><b class="block green">{{ page.date }}</b></small></p>
+                    <br>
+                {% endfor %}
+            {% endif %}
+        </main>
+
+        <br>
+
+        {% include 'footer.html' %}
+    </body>
+</html>

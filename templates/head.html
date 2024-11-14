@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/assets/style.css">
+<link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
+
+{% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+{% endif %}
+
+{% if page.extra.keywords %}
+    <meta name="keywords" content="{{ page.extra.keywords | join(sep=', ') }}">
+{% endif %}
