@@ -33,6 +33,7 @@ body {
   margin: auto;
   max-width: 80ch;
   background: var(--color-body-bg);
+  padding: 1em;
 }
 
 header {
