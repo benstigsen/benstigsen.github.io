@@ -1,7 +1,8 @@
 +++
 title = "Home"
+description = "The digital garden of Benjamin Stigsen."
 template = "section.html"
 page_template = "page.html"
 +++
 
-Hello World!
+Welcome, you've entered the digital garden of Benjamin Stigsen.
