@@ -18,12 +18,12 @@ Financial data processing using Python, Selenium and PostgreSQL.
 
 _(Aug 2024 - Jan 2025)_  
 **Software Developer Intern (twoday)**  
-Fullstack using C#, Umbraco and MSSQL.
+Fullstack using C#, TypeScript, Umbraco and MSSQL.
 Internship as a part of my CS studies.
 
 _(Aug 2023 - Apr 2024)_  
 **Software Developer (Helt Solgt)**  
-Developed real estate software solutions using Excel and Visual Basic.
+Developed real estate software solutions using Excel and VBA.
 
 _(Jun 2019 - Oct 2021)_  
 **Marketing Intern (William Chyr Studio)**  
@@ -37,7 +37,7 @@ Java, C#, PHP
 _(Aug 2018 - Jun 2021)_  
 **Computer Science ([HTX](https://eng.uvm.dk/upper-secondary-education/national-upper-secondary-education-programmes/the-higher-technical-examination-programme--htx-) / High School)**  
 _Herningsholm Erhvervsskole_  
-Python, JavaScript, PHP, GDScript
+C, Python, JavaScript, PHP, GDScript
 
 
 </td>
