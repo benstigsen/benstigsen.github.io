@@ -1,0 +1,19 @@
+#portfolio {
+  width: 100%;
+  text-justify: none;
+  table-layout: fixed;
+}
+
+#portfolio td {
+  border: none;
+  width: auto;
+  vertical-align: top;
+}
+
+h2:has(+ ul) {
+  margin-bottom: 0;
+}
+
+h2 ul {
+  margin-top: 0;
+}
