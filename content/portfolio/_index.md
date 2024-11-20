@@ -31,11 +31,13 @@ _(Jun 2019 - Oct 2021)_
 ## Education
 _(Aug 2022 - Jan 2025)_  
 **Computer Science (Academy Profession)**  
-_Erhvervsakademi MidtVest_
+_Erhvervsakademi MidtVest_  
+Java, C#, PHP
 
 _(Aug 2018 - Jun 2021)_  
 **Computer Science ([HTX](https://eng.uvm.dk/upper-secondary-education/national-upper-secondary-education-programmes/the-higher-technical-examination-programme--htx-) / High School)**  
-_Herningsholm Erhvervsskole_
+_Herningsholm Erhvervsskole_  
+Python, JavaScript, PHP, GDScript
 
 
 </td>
@@ -46,7 +48,7 @@ _Herningsholm Erhvervsskole_
 - **Frameworks and Libraries:** React, Vite, Lit, HTMX, jQuery, Bootstrap, Razor
 
 ## Backend
-- **Languages:** Go, Python, C#, Java, JS/TS (Node.js, Deno)
+- **Languages:** Go, Python, C#, Java, PHP, JS/TS (Node.js, Deno)
 - **Frameworks:** Express, Hono, Umbraco
 - **Databases:** SQLite, PostgreSQL, MSSQL, MongoDB
 - **Platforms:** Windows, Linux
