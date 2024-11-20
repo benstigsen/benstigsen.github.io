@@ -8,21 +8,21 @@
 <table id="portfolio"><tr><td>
 
 ## Career
-_(Aug 2024 - Jan 2025)_  
-**Software Developer (twoday)**  
-Fullstack using C#, Umbraco and MSSQL/SQL Server.
-Internship as a part of my CS studies.
+_(Aug 2021 - <span class="smol green block">Active</span>)_  
+**Developer, Writer, Translator (Freelance)**
 
-_(Jul 2024 - Present)_  
+_(Jul 2024 - <span class="smol green block">Active</span>)_  
 **Software Developer (revisor1)**  
-Financial data processing using Python and PostgreSQL.
+Financial data processing using Python, Selenium and PostgreSQL.
+
+_(Aug 2024 - Jan 2025)_  
+**Software Developer Intern (twoday)**  
+Fullstack using C#, Umbraco and MSSQL.
+Internship as a part of my CS studies.
 
 _(Aug 2023 - Apr 2024)_  
 **Software Developer (Helt Solgt)**  
 Developed real estate software solutions using Excel and Visual Basic.
-
-_(Aug 2021 - Present)_  
-**Software Developer (Freelance)**
 
 _(Jun 2019 - Oct 2021)_  
 **Marketing Intern (William Chyr Studio)**  
@@ -47,7 +47,7 @@ _Herningsholm Erhvervsskole_
 ## Backend
 - **Languages:** Go, Python, C#, Java, JS/TS (Node.js, Deno)
 - **Frameworks:** Express, Hono, Umbraco
-- **Databases:** SQLite, PostgreSQL, MSSQL
+- **Databases:** SQLite, PostgreSQL, MSSQL, MongoDB
 - **Platforms:** Windows, Linux
 - **Other:** Docker
 
