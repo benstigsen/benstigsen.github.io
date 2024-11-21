@@ -9,6 +9,10 @@
     --color-quote-bg: #efefef;
 }
 
+p:has(code) {
+    text-align: left; /* to prevent justifying code */
+}
+
 code {
     font-family: "JetBrains Mono", monospace;
     border-radius: var(--block-border-radius);
