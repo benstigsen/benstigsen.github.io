@@ -1,24 +1,3 @@
-+++
-title = "Void Linux GNOME Setup"
-description = "Setting up GNOME on Void Linux with Xorg/Wayland."
-date = 2024-11-22
-insert_anchor_links = "heading"
-draft = true
-
-[extra]
-keywords = ["void", "linux", "gnome", "xorg", "wayland", "setup"]
-code = true
-+++
-
-The script below is made for someone wanting a fresh GNOME install on Void Linux.  
-**If you already have a system set up, errors can occur between seat managers,
-services and the desktop environment.**
-
-```sh
-curl -f https://stigsen.dev/scripts/void-linux-gnome.sh | sudo sh
-```
-
-```sh
 #!/bin/sh
 function xorg() {
     xbps-install xorg
@@ -28,7 +7,7 @@ function wayland() {
     xbps-install -y xorg-server-xwayland
     xbps-install -y qt5-wayland # for qt5 applications
     xbps-install -y kwayland    # for kde applications
-    
+
     echo 'Setting environment variables...'
     [ -z "$ELM_DISPLAY"        ] && echo 'ELM_DISPLAY=wl'              >> /etc/environment
     [ -z "$SDL_VIDEODRIVER"    ] && echo 'SDL_VIDEODRIVER=wayland'     >> /etc/environment
@@ -64,4 +43,3 @@ function main() {
 }
 
 main
-```
