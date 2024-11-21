@@ -1,6 +1,6 @@
 +++
-title = "Are Go Databases Thread-Safe?"
-description = "Yes, sql.DB is thread-safe"
+title = "Go SQL Database Thread Safety"
+description = "It is safe by default to use sql.DB from multiple goroutines."
 date = 2024-11-21
 insert_anchor_links = "heading"
 
@@ -8,7 +8,7 @@ insert_anchor_links = "heading"
 keywords = ["go", "golang", "sql", "database", "connection", "mutex", "goroutine"]
 +++
 
-Yes, making use of `sql.DB` from multiple goroutines is safe, since Go manages
+Making use of `sql.DB` from multiple goroutines is safe, since Go manages
 its own internal mutex.[^1]
 
 > DB is a database handle representing a pool of zero or more underlying connections.
