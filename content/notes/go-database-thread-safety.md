@@ -6,6 +6,7 @@ insert_anchor_links = "heading"
 
 [extra]
 keywords = ["go", "golang", "sql", "database", "connection", "mutex", "goroutine"]
+code = true
 +++
 
 Making use of `sql.DB` from multiple goroutines is safe, since Go manages
