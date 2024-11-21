@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/assets/fonts/jetbrains-mono.ttf");
+}
+
+:root {
+    --color-code-fg: var(--color-text-fg);
+    --color-code-bg: #dedede;
+    --color-quote-bg: #efefef;
+}
+
+code {
+    font-family: "JetBrains Mono", monospace;
+    border-radius: var(--block-border-radius);
+    background-color: var(--color-code-bg);
+    padding: 0.1em 0.2em;
+    tab-size: 4;
+    font-size: 0.9em;
+}
+
+pre code {
+    font-family: "JetBrains Mono", monospace;
+    padding: 0;
+}
+
+pre {
+    border-radius: var(--block-border-radius);
+    border-style: var(--block-border-style);
+    border-width: var(--block-border-width);
+    background-color: var(--color-code-bg);
+    width: fit-content;
+    padding: 0.2em 0.5em;
+}
+
+.z-keyword {
+    font-weight: bold;
+    color: purple;
+}
+
+.z-string,
+.z-quoted {
+    font-weight: bold;
+    color: green;
+}
+
+.z-constant {
+    font-weight: bold;
+    color: orangered;
+}
+
+.z-comment {
+    color: grey;
+}
+
+.z-variable.z-function {
+    font-weight: bold;
+}

@@ -7,6 +7,10 @@
     <meta name="description" content="{{ page.description | default(value='') }} {{ section.description | default(value='') }}">
 {% endif %}
 
+{% if page.extra.code %}
+    <link rel="stylesheet" type="text/css" href="/assets/syntax.css">
+{% endif %}
+
 {% if page.extra.keywords %}
     <meta name="keywords" content="{{ page.extra.keywords | join(sep=', ') }}">
 {% endif %}

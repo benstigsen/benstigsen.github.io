@@ -3,20 +3,12 @@
     src: url("/assets/fonts/lexend.ttf");
 }
 
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("/assets/fonts/jetbrains-mono.ttf");
-}
-
 :root {
     --color-body-bg: white;
 
     --color-text-fg: black;
     --color-tag-fg: var(--color-text-fg);
     --color-logo-fg: var(--color-text-fg);
-
-    --color-code-bg: #dedede;
-    --color-quote-bg: #efefef;
 
     --color-red: #ffaaaa;
     --color-green: #aaffaa;
@@ -106,27 +98,6 @@ blockquote {
 blockquote p {
     margin: 0;
     padding: 0;
-}
-
-code {
-    font-family: "JetBrains Mono", monospace;
-    border-radius: var(--block-border-radius);
-    background-color: var(--color-code-bg);
-    padding: 0.1em 0.2em;
-}
-
-pre code {
-    font-family: "JetBrains Mono", monospace;
-    padding: 0;
-}
-
-pre {
-    border-radius: var(--block-border-radius);
-    border-style: var(--block-border-style);
-    border-width: var(--block-border-width);
-    background-color: var(--color-code-bg);
-    width: fit-content;
-    padding: 0.3em;
 }
 
 /* inverted selection colors */
