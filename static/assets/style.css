@@ -192,3 +192,7 @@ a.tag {
     font-weight: bold;
     transition: font-weight 0.2s;
 }
+
+.page-entry {
+    margin-bottom: 2em;
+}

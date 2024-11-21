@@ -12,10 +12,11 @@
 
             {% if section.pages %}
                 {% for page in section.pages %}
-                    <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
-                    <p><small>{{ page.description }}</small></p>
-                    <p><small><b class="block green">{{ page.date }}</b></small></p>
-                    <br>
+                    <div class="page-entry">
+                        <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+                        <p><small>{{ page.description }}</small></p>
+                        <p><small><b class="block green">{{ page.date }}</b></small></p>
+                    </div>
                 {% endfor %}
             {% endif %}
         </main>
