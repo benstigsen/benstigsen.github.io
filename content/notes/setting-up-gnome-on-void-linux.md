@@ -55,7 +55,6 @@ function main() {
     ln -sf /etc/sv/seatd /var/service/
     ln -sf /etc/sv/acpid /var/service/
 
-    # choose xorg or wayland here
     echo 'Setting up Xorg or Wayland...'
     # xorg    && echo 'Rebooting...' && reboot && exit 0
     # wayland && echo 'Rebooting...' && reboot && exit 0
