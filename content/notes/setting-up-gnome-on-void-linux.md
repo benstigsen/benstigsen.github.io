@@ -43,22 +43,25 @@ function main() {
         exit
     fi
 
+    echo 'Updating system and installing required applications...'
     xbps-install -Suy
     xbps-install -y gnome gdm xdg-desktop-portal-gnome #gnome-apps
     xbps-install -y dbus turnstile seatd acpid
 
     echo 'Enabling services...'
-    ln -s /etc/sv/gdm /var/service/
-    ln -s /etc/sv/dbus /var/service/
-    ln -s /etc/sv/turnstile /var/service/
-    ln -s /etc/sv/seatd /var/service/
-    ln -s /etc/sv/acpid /var/service/
+    ln -sf /etc/sv/gdm /var/service/
+    ln -sf /etc/sv/dbus /var/service/
+    ln -sf /etc/sv/turnstile /var/service/
+    ln -sf /etc/sv/seatd /var/service/
+    ln -sf /etc/sv/acpid /var/service/
 
     # choose xorg or wayland here
-    # xorg
-    wayland
+    echo 'Setting up Xorg or Wayland...'
+    # xorg    && echo 'Rebooting...' && reboot && exit 0
+    # wayland && echo 'Rebooting...' && reboot && exit 0
 
-    reboot
+    echo 'You need to uncomment xorg or wayland in main function'
+    exit 1
 }
 
 main
