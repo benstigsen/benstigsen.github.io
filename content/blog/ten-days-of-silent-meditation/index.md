@@ -1,5 +1,5 @@
 +++
-title = "One Month of Budgeting"
+title = "Ten Days of Silent Meditation"
 description = "TODO"
 date = 2024-08-25
 draft = true
@@ -7,5 +7,3 @@ draft = true
 [extra]
 keywords = ["meditation", "spirituality", "buddhism", "mental health"]
 +++
-
-
