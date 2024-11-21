@@ -1,43 +1,48 @@
 @font-face {
-  font-family: "Lexend";
-  src: url("/assets/fonts/lexend.ttf");
+    font-family: "Lexend";
+    src: url("/assets/fonts/lexend.ttf");
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/assets/fonts/jetbrains-mono.ttf");
 }
 
 :root {
-  --color-body-bg: white;
+    --color-body-bg: white;
 
-  --color-text-fg: black;
-  --color-tag-fg: var(--color-text-fg);
-  --color-logo-fg: var(--color-text-fg);
+    --color-text-fg: black;
+    --color-tag-fg: var(--color-text-fg);
+    --color-logo-fg: var(--color-text-fg);
 
-  --color-red: #ffaaaa;
-  --color-green: #aaffaa;
-  --color-blue: #a8d8f8;
-  --color-yellow: #ffff55;
+    --color-code-bg: #dedede;
+    --color-quote-bg: #efefef;
 
-  --block-border-style: solid;
-  --block-border-width: 2px;
-  --block-border-color: black;
-  --block-border-radius: 4px;
+    --color-red: #ffaaaa;
+    --color-green: #aaffaa;
+    --color-blue: #a8d8f8;
+    --color-yellow: #ffff55;
 
-  --padding-small: 0.2em;
-  --padding-medium: 0.3em;
-  --padding-big: 0.4em;
-}
+    --block-border-style: solid;
+    --block-border-width: 2px;
+    --block-border-color: black;
+    --block-border-radius: 4px;
 
-* {
-  font-family: "Lexend", sans-serif;
+    --padding-small: 0.2em;
+    --padding-medium: 0.3em;
+    --padding-big: 0.4em;
 }
 
 body {
-  margin: auto;
-  max-width: 80ch;
-  background: var(--color-body-bg);
-  padding: 1em;
+    font-family: "Lexend", sans-serif;
+    margin: auto;
+    max-width: 80ch;
+    background: var(--color-body-bg);
+    padding: 1em;
 }
 
 header {
-  margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 h1,
@@ -46,129 +51,144 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lexend", sans-serif;
-  font-weight: 900;
+    font-family: "Lexend", sans-serif;
+    font-weight: 900;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 p {
-  text-align: justify;
+    text-align: justify;
 }
-
 a {
-  color: var(--color-text-fg);
+    color: var(--color-text-fg);
 }
 
 nav a {
-  padding: 0 var(--padding-small);
-  text-decoration: none;
-  transition: font-weight 0.1s;
-  margin-right: 0.5em;
+    padding: 0 var(--padding-small);
+    text-decoration: none;
+    transition: font-weight 0.1s;
+    margin-right: 0.5em;
 }
 
 nav a:hover {
-  font-weight: bolder;
-  transition: font-weight 0.2s;
+    font-weight: bolder;
+    transition: font-weight 0.2s;
 }
 
 p:has(small) {
-  margin-top: 0.3em;
-  margin-bottom: 0.5em;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
 }
 
 table {
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 table td,
 table th {
-  padding: 0.3em;
-  border: 1px solid var(--color-text-fg);
+    padding: 0.3em;
+    border: 1px solid var(--color-text-fg);
+}
+
+blockquote {
+    background: var(--color-quote-bg);
+    border-left: 0.4em solid #ccc;
+    margin: 0.5em 0;
+    padding: 0.5em 1em;
+    border-radius: var(--block-border-radius);
+}
+
+blockquote p {
+    margin: 0;
+    padding: 0;
+}
+
+code {
+    font-family: "JetBrains Mono", monospace;
+    border-radius: var(--block-border-radius);
+    background-color: var(--color-code-bg);
+    padding: 0.1em 0.2em;
+}
+
+pre code {
+    font-family: "JetBrains Mono", monospace;
+    padding: 0;
+}
+
+pre {
+    border-radius: var(--block-border-radius);
+    border-style: var(--block-border-style);
+    border-width: var(--block-border-width);
+    background-color: var(--color-code-bg);
+    width: fit-content;
+    padding: 0.3em;
 }
 
 /* inverted selection colors */
 ::selection {
-  color: var(--color-body-bg);
-  background-color: var(--color-text-fg);
+    color: var(--color-body-bg);
+    background-color: var(--color-text-fg);
 }
 
-#logo {
-  padding: 0 var(--padding-small);
-  margin-bottom: 0;
-  display: inline-block;
+.footnote-definition-label::before,
+.footnote-reference::before {
+    content: "[";
+    color: red;
+    font-weight: bold;
+}
+
+.footnote-definition-label::after,
+.footnote-reference::after {
+    content: "]";
+    color: red;
+    font-weight: bold;
+}
+
+.footnote-definition p {
+    display: inline-block;
+    margin: 0 0 0 0.2em;
 }
 
 .block {
-  border-style: var(--block-border-style);
-  border-width: var(--block-border-width);
-  border-color: var(--block-border-color);
-  border-radius: var(--block-border-radius);
-  padding: var(--padding-small);
+    border-style: var(--block-border-style);
+    border-width: var(--block-border-width);
+    border-color: var(--block-border-color);
+    border-radius: var(--block-border-radius);
+    padding: var(--padding-small);
 }
 
 .red {
-  background: var(--color-red);
+    background: var(--color-red);
 }
 
 .blue {
-  background: var(--color-blue);
+    background: var(--color-blue);
 }
 
 .green {
-  background: var(--color-green);
+    background: var(--color-green);
 }
 
 .yellow {
-  background: var(--color-yellow);
+    background: var(--color-yellow);
 }
 
 a.tag {
-  text-decoration: none;
-  color: var(--color-tag-fg);
+    text-decoration: none;
+    color: var(--color-tag-fg);
 }
 
 .tag {
-  padding: var(--padding-small) var(--padding-small);
-  transition: font-weight 0.1s;
+    padding: var(--padding-small) var(--padding-small);
+    transition: font-weight 0.1s;
 }
 
 .tag:hover {
-  font-weight: bold;
-  transition: font-weight 0.2s;
-}
-
-/* post */
-.post-title {
-  margin-bottom: 0;
-}
-
-.post-title a {
-  text-decoration: none;
-}
-
-.post-title a:hover {
-  text-decoration: underline;
-}
-
-.post-description {
-  margin-top: 0.5em;
-}
-
-.post-entry {
-  margin-bottom: 1.25em;
-}
-
-.post-entry .post-description {
-  margin-top: 0.1em;
-  margin-bottom: 0.2em;
-}
-
-.padding-h-small {
-  padding-left: var(--padding-small);
-  padding-right: var(--padding-small);
+    font-weight: bold;
+    transition: font-weight 0.2s;
 }
