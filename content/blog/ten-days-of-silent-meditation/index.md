@@ -35,6 +35,8 @@ Four hours later at 9:15, I was now in Mjölby, it was freezing cold with a lot 
 
 At 16:10 we arrived.
 
+***TODO: MAP***
+
 ***TODO: PICTURE?***
 
 We went inside to the main building, giving away our phones, jewelry, books, headsets and more, to dedicate the next 10 days fully to the experience. They gave out small flyers with the daily schedule, which looked like this:
@@ -86,7 +88,24 @@ We sat down and waited in silence, a recording was started of the teacher [S. N.
 
 He explained that for the next ten days we would be challenged mentally and physically. Some of us will want to quit day two and six he warned. We were told that when we leave this room, we were to avoid all forms of communication, unless it was completely necessary. No talking, gestures or eye-contact. With our eyes closed we ended the session with a mantra, sending vibrations through the entire hall, it felt magical. We all stood up, headed to our room in silence and went to sleep.
 
-### Day 1
+### Day 1-3
+February 7th I woke up at 3:00... laying in bed I contemplated the challenge that was ahead, waiting, daydreaming. An hour went by and the morning bell was struck, I got out of bed, took a short shower and went to the meditation hall.
 
+Most who have meditated will have tried Anapana meditation, where you focus on the breath, every inhale and exhale. This is similar to how we started. If we imagine a triangle from each corner of the mouth to the point between the top of the nose, this was the area we were to focus on. We closed our eyes and then observed sensation caused by the breath, that popped up within that area. Whether it was the cold air on the nostrils or the breath hitting the hair above the lip. We were told to notice it and focus on it. Like any type of meditation with intentional focus, a major obstacle is met immediately... the inability to focus. One moment you're looking for a sensation, the next moment you catch yourself in a daydream, that you've been thinking about for the last five minutes. ["The Monkey Mind"](https://www.youtube.com/watch?v=cYG5VvHry7c&index=2) as Goenka called it. Your mind starts wandering off again, but noticing the sensations gets quicker and easier.
 
-***TODO: MAP***
+Instructions were given by an audio recording of Goenka speaking English. Then a Danish recording would play right after, explaining it again. There'd be long periods of silence, at times interrupted by Goenka humming, singing or reminding us what this journey is about.
+
+After two hours of noticing physical sensations and training one's focus, it was time for breakfast. Each person was given a specific seat, this is where we ate for both meals each day. Breakfast always had some porridge with raisins, seeds, tea, honey, bread and butter. No coffee was allowed. Like most other people, when I was done eating I engaged in one of three main activities... resting in my room, taking a walk in the Swedish nature or meditating some more. A large section of the forest was marked with colored tape, we were not allowed to leave the area. There were two marked areas in the forest, one for men and one for women.
+
+After the break we meditated some more, sometimes in our own room, at other times in the meditation hall. At one point we'd have lunch, usually some hot vegan meal. Later we'd also have a tea break, which for new students (like me) included some fruit. Older students were only offered tea.
+
+During one of the meditation sessions, our names were called one by one, in groups of four. One of the teachers, would call the name of four students, followed by four of us sitting down in front of the teacher, being asked questions about the location of the physical sensations and the intensity. After that we return seats or go back to our room. This was repeated until every student had sat in front of the teacher. After that the other teacher would repeat the process, for the opposite gender.
+
+Each day would end with a [video recording of Goenka talking](https://www.youtube.com/watch?v=cz7QHNvNFfA&list=PLPJVlVRVmhc4Z01fD57jbzycm9I6W054x) about the day, the challenge that lies ahead, as well as thoughts and stories about his personal life, Buddhism, health and more. He'd often make most of us laugh, with his funny stories and jokes.
+
+This was the daily structure, ten hours of meditation every day, two meals, one tea break and one hour of dedicated rest time.
+
+As we kept practicing, we were instructed to narrow our focus. So instead of a triangle from the corners of the mouth to the nose bridge, we'd now focus on the upper lip and nostrils, noticing any sensation within this area. This was then later changed to focus _only_ on the upper lip.
+
+### Day 4
+On this day we really started practicing Vipassana. The first three days laid the groundwork, where we practiced narrowing our focus and observing the tiny physical sensations caused by the breath. On the 4th day we started scanning our body from head to toe, very slowly. Following the instructions as given by Goenka. First we focused on the top of our head, waiting until we felt a physical sensation, whether it was temperature, itching, pain, sweat or any other physical sensation. What's interesting is that as one scans down the body, it's still possible to feel some of the sensations observed earlier. So even though I was scanning my torso, I could still feel some of the sensations on the top of my head. We kept moving our focus down, covering more and more of the body in vibrations.
