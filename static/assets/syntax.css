@@ -36,6 +36,10 @@ pre {
     padding: 0.2em 0.5em;
 }
 
+.z-type {
+    font-weight: bold;
+}
+
 .z-keyword,
 .z-type.z-function {
     font-weight: bold;
