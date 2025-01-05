@@ -52,7 +52,7 @@ C, Python, JavaScript, PHP, GDScript
 - **Frameworks:** Express, Hono, Umbraco  
 - **Databases:** SQLite, PostgreSQL, MSSQL, MongoDB  
 - **Platforms:** Windows, Linux  
-- **Other:** Docker, Caddy  
+- **Other:** Docker, Caddy, Maven  
 
 ## Other
 - **Version Management:** GitHub, GitLab, Azure  
