@@ -28,8 +28,6 @@ The room was nice and simple, I was getting ready to rest. Apparently though I h
 
 ![Street](./images/1000001176.jpg)
 
-![Big Building](./images/1000001181.jpg)
-
 ![Center of Gothenburg](./images/1000001185.jpg)
 
 I didn't pack food for multiple days though, and as I had to take a train later, I needed some sort of breakfast. A couple of kilometers away from the hostel, there was a McDonalds which was open 24 hours a day.
@@ -153,6 +151,7 @@ A lot of the recordings by Goenka made references to rebirth and more, which mak
 Meditation has become a bigger part of my life, though it's mostly Anapana with a focus on the breath. I find myself to be more mindful when I walk, eat, exercise and more.
 
 Here's a map of the journey:
+
 ![Travel Map](./images/map.png)
 
 **Red** = From Denmark to Sweden.  
