@@ -7,11 +7,11 @@ date = 2025-01-25
 keywords = ["meditation", "spirituality", "buddhism", "mental health", "vipassana"]
 +++
 
-In February 2024 I travelled to Sweden, where I during the course of 10 days, meditated for 100 hours in total silence.
+In February 2024 I travelled to Sweden, where I meditated for 100 hours in silence, during the course of 10 days.
 
 In 2023 while scrolling through YouTube, I was recommended a video called ["I Meditated in Silence For 10 Days"](https://www.youtube.com/watch?v=0oLWuS4ZI80). Having been interested in psychology, philosophy and mindfulness since childhood, this video piqued my interest. I watched some of the video and was introduced to the term "Vipassana". I bookmarked the video as it seemed interesting and forgot about it.
 
-Six months later I was doing a digital cleanup, where I cleared all of my bookmarks. During this process I stumbled upon the video again. After looking at the Vipassana website, I was very surprised to not only learn that a course was entirely free, but also that they offered 1, 3, 10, 30 or 60 day courses. Having wanted to go on similar retreats for a long time, I decided I may as well do it now. 10 days seemed ideal, it wouldn't disrupt my computer science studies too much, but it would also give me a better idea of the experience, unfortunately it was impossible for me to find any 10 day courses in Denmark. The closest one was in Sweden, having never taken public transport myself this actually made me nervous, but I figured it was time to get over that fear as well. February 5th I sent a message to my friends, family and teachers, saying that they wouldn't be able to contact me for a while.
+Six months later I was doing a digital cleanup, where I cleared all of my bookmarks. During this process I stumbled upon the video again. After looking at the Vipassana website, I was very surprised to not only learn that a course was entirely free, but also that they offered 1, 3, 10, 30 or 60 day courses. Having wanted to go on similar retreats for a long time, I decided I may as well do it now. 10 days seemed ideal, it wouldn't disrupt my computer science studies too much, but it would also give me a better idea of the experience, unfortunately it was impossible for me to find any 10 day courses in Denmark. The closest one was in Sweden, having never taken public transport myself this actually made me nervous, but I figured it was time to get over that fear. February 5th I sent a message to my friends, family and teachers, saying that they wouldn't be able to contact me for a while.
 
 ### Travel
 At five in the morning, I was waiting for the train in Central Jutland, Herning. Three hours later I was in Aalborg, where I had 3 minutes to run from the train station to the bus station. I continued north towards Frederikshavn, where I boarded the ferry going to Gothenburg in Sweden. Now it was official.
@@ -32,8 +32,7 @@ The room was nice and simple, I was getting ready to rest. Apparently though I h
 
 I didn't pack food for multiple days though, and as I had to take a train later, I needed some sort of breakfast. A couple of kilometers away from the hostel, there was a McDonalds which was open 24 hours a day.
 
-After walking some more, at 5:15 in the morning I found myself at the Gothenburg Centralstation, where I
-waited for my train to Mjölby.
+After walking some more, at 5:15 in the morning I found myself at the Gothenburg Centralstation, where I waited for my train to Mjölby.
 
 ![Gothenburg Centralstation](./images/1000001187.jpg)
 
@@ -95,18 +94,18 @@ A couple of hours later the bell / gong was rung, which signaled that we should 
 ![Meditation Hall Outside](./images/1000001223.jpg)
 ![Meditation Hall Inside](./images/1000001219.jpg)
 
-We sat down and waited in silence, a recording was started of the teacher [S. N. Goenka](https://en.wikipedia.org/wiki/S._N._Goenka). I almost started laughing as I'm sure many others did. The recording started with S. N. Goenka humming and singing in his own unique way.
+We sat down and waited in silence, a recording was started of the teacher [S.N. Goenka](https://en.wikipedia.org/wiki/S._N._Goenka). I almost started laughing as I'm sure many others did. The recording started with S.N. Goenka humming and singing in his own unique way.
 
 He explained that for the next ten days we would be challenged mentally and physically. Some of us will want to quit day two and six he warned. We were told that when we leave this room, we were to avoid all forms of communication, unless it was completely necessary. No talking, gestures or eye-contact. We did the first meditation with our eyes closed, and we ended the session with a mantra, sending vibrations through the entire hall, it felt magical. We all stood up, headed to our room in silence and went to sleep.
 
 ### Anapana
 February 7th I woke up at 3:00... laying in bed I contemplated the challenge that was ahead, waiting, daydreaming. An hour went by and the morning bell was struck, I got out of bed, took a short shower and went to the meditation hall.
 
-Most who have meditated will have tried Anapana meditation, where you focus on the breath, every inhale and exhale. This is similar to how we started. If we imagine a triangle from each corner of the mouth to the point between the top of the nose, this was the area we were to focus on. We closed our eyes and then observed sensation caused by the breath, that popped up within that area. Whether it was the cold air on the nostrils or the breath hitting the hair above the lip. We were told to notice it and focus on it. Like any type of meditation with intentional focus, a major obstacle is met immediately... the inability to focus. One moment you're looking for a sensation, the next moment you catch yourself in a daydream, that you've been thinking about for the last five minutes. ["The Monkey Mind"](https://www.youtube.com/watch?v=cYG5VvHry7c&index=2) as Goenka called it. Your mind starts wandering off again, but noticing the sensations gets quicker and easier.
+Most who have meditated will have tried Anapana meditation, where you focus on the breath, every inhale and exhale. This is similar to how we started. If we imagine a triangle from each corner of the mouth to the point between the top of the nose, this was the area we were to focus on. We closed our eyes and observed sensations caused by the breath, that popped up within that area. Whether it was the cold air on the nostrils or the breath hitting the hair above the lip. We were told to notice it and focus on it. Like any type of meditation with intentional focus, a major obstacle is met immediately... the inability to focus. One moment you're looking for a sensation, the next moment you catch yourself in a daydream, that you've been thinking about for the last five minutes. ["The Monkey Mind"](https://www.youtube.com/watch?v=cYG5VvHry7c&index=2) as Goenka called it. Your mind starts wandering off again, but noticing the sensations gets quicker and easier.
 
 Instructions were given by an audio recording of Goenka speaking English. Then a Danish recording would play right after, explaining it again. There'd be long periods of silence, at times interrupted by Goenka humming, singing or reminding us what this journey is about.
 
-After two hours of noticing physical sensations and training one's focus, it was time for breakfast. Each person was given a specific seat, this is where we ate our meals each day. Breakfast always had some porridge with raisins, seeds, tea, honey, bread and butter. No coffee was allowed. Like most other people, when I was done eating I engaged in one of three main activities... resting in my room, taking a walk in the Swedish nature or meditating some more. A large section of the forest was marked with colored tape, we were not allowed to leave the area. There were two marked areas in the forest, one for men and one for women.
+After two hours of noticing physical sensations and training one's focus, it was time for breakfast. Each person was given a specific seat, this is where we ate our meals each day. Breakfast always had some porridge with raisins, seeds, tea, honey, bread and butter. No coffee was allowed. Like most other people, when I was done eating I engaged in one of three main activities... resting in my room, taking a walk in the Swedish nature or meditated some more. A large section of the forest was marked with colored tape, we were not allowed to leave the area. There were two marked areas in the forest, one for men and one for women.
 
 After the break we meditated some more, sometimes in our own room, at other times in the meditation hall. At one point we'd have lunch, usually some hot vegan meal. Later we'd also have a tea break, which for new students (like me) included some fruit. Older students were only offered tea.
 
@@ -121,7 +120,7 @@ As we kept practicing, we were instructed to narrow our focus. So instead of a t
 ### Vipassana
 The first couple of days laid the groundwork, where we practiced narrowing our focus and observing the tiny physical sensations caused by the breath. But now we started scanning our body from head to toe, very slowly, following the instructions as given by Goenka. First we focused on the top of our head, waiting until we felt a physical sensation, whether it was temperature, itching, pain, sweat or any other physical sensation. What's interesting is that as one scans down the body, it's still possible to feel some of the sensations observed earlier. So even though I was now scanning my left arm, I could still feel some of the sensations on the top of my head. We kept moving our focus down, covering more and more of the body in these sensations. It felt pleasant.
 
-As we reached our toes, having covered a lot of our body in sensations, Goenka told us to move our focus back to the top of the head... this was it. Everything dissappared, my entire existence. Vibrations were radiating from the top of my head throughout my entire body. I could feel myself shaking, but my body was gone. The entire universe was taken over by vibrations, I felt content. As our physical body was disintegrating in this sensory explosion, Goenka said "there is not past, there is no future, there is only Vipassana". We opened our eyes, the meditation session was done. Several people started crying and laughing. The experience was bliss.
+As we reached our toes, having covered a lot of our body in sensations, Goenka told us to move our focus back to the top of the head... this was it. Everything dissappared, my entire existence. Vibrations were radiating from the top of my head throughout my entire body. I could feel myself shaking, but my body was gone. The entire universe was taken over by vibrations, I felt content. As our physical body was disintegrating in this sensory explosion, Goenka said "there is no past, there is no future, there is only Vipassana". We opened our eyes, the meditation session was done. Several people started crying and laughing. The experience was bliss.
 
 Now came the next major challenge, the purpose of several philosophies, religions and Vipassana. To reduce suffering. As humans we have a tendency to repeat positive experiences to chase the same effects as before, while also avoiding negative experiences. We are addicts, constantly seeking positive emotions, feelings and physical sensations. In Vipassana this is the foundation of all suffering, craving. We repeated the process of scanning our body, but now it was with the goal of noticing the sensations, while not trying to force them and without attaching ourselves emotionally to whether they feel good or bad. Noticing uncomfortable sensations like pain and itching, accepting that they're there and taking note of the sensations.
 
@@ -132,23 +131,23 @@ At this point we were also told to integrate awareness/mindfulness into everythi
 There is a quote from the Vietnamese Buddhist monk Thich Nhat Hanh, which encapsulates the essence of "mindfulness" quite well:
 > Drink your tea slowly and reverently, as if it is the axis on which the world earth revolves – slowly, evenly, without rushing toward the future. Live the actual moment. Only this moment is life.
 
-As we were nearing the end of the course, the weather reflected the journey in a way I can only describe as "symbolic". Throughout the entire course it was cloudy and cold with snow on the ground. But not today, the snow was melting and the sun was peeking between the clouds. As we waited for lunch, we all stood in a long line, facing the sun, feeling the heat on our face.
+As we were nearing the end of the course, the weather reflected the journey in a way I can only describe as "symbolic". Throughout the entire course it was cloudy and cold with snow on the ground. But not today, the snow was melting and the sun was peeking through the clouds. As we waited for lunch, we all stood in a long line, facing the sun, feeling the heat on our face.
 
 ![Meditation Center (Sunny)](./images/1000001231.jpg)
 
 As we reached the end of the course, we ended it with a meditation of love, wishing peace and well-being to all living things. It was neatly tied together by ending it the same way we started, with a mantra sending vibrations throughout the entire meditation hall. We were now allowed to talk, but only when we had left the meditation hall.
 
-The main building had a rideshare board on the wall, where a person was driving to Denmark, which I asked if I could join. I talked a bit with my roommate from Stockholm and talked to other people about the experience. One person said "have a good life" when they were leaving, a lot of us found this quite funny and used the phrase for the rest of the day, to wish eachother goodbye.
+The main building had a rideshare board on the wall, where a person was driving to Denmark, which I asked if I could join. I talked a bit with my roommate from Stockholm, as well as other people about the experience. One person said "have a good life" when they were leaving, a lot of us found this quite funny and used the phrase for the rest of the day, to wish eachother goodbye.
 
 ### Roadtrip
-I was now in a car with four strangers from the course, one of which had been a volunteer at the Vipassana center for three months. Over the the next 8 hours or so, we talked about meditation, shadow work, drugs, ice-baths and much much more. We went to eat and go shopping, then we continued the journey home. Three people got off at Copenhagen, then it was just me and the driver (Emil) until we reached Odense, from which I'd continue home by train.
+I was now in a car with four strangers from the course, one of which had been a volunteer at the Vipassana center for three months. Over the next 8 hours or so, we talked about meditation, shadow work, drugs, ice-baths and much more. We went to eat and go shopping, then we continued the journey home. Three people got off at Copenhagen, then it was just me and the driver (Emil) until we reached Odense, from which I'd continue home by train.
 
 ### Reflection
-One of the first things I was asked by participants, family members and friends, was if I'd go on a Vipassana journey again, to which I responded "no" with certainty. But with time having passed, my opinion has changed. Not only would I like to do it again, but I'd like to do it for even longer, like a month or two.
+One of the first things I was asked by other people, was if I'd go on a Vipassana journey again, to which I responded "no" with certainty. But with time having passed, my opinion has changed. Not only would I like to do it again, but I'd like to do it for even longer, like a month or two.
 
 A lot of the recordings by Goenka made references to rebirth and more, which makes sense as the practice is built on a Buddhist foundation. I do not personally believe in every reason or effect for certain parts of the practice, but as Goenka himself mentioned, it wasn't required to believe all of it, in order to gain value from it.
 
-Meditation has become a bigger part of my life, though it's mostly Anapana with a focus on the breath. I find myself to be more mindful when I walk, eat, exercise and more.
+Meditation has become a bigger part of my life, though it's mostly Anapana with a focus on the breath. I find myself to be mindful when I walk, eat, exercise and everything else.
 
 Here's a map of the journey:
 
