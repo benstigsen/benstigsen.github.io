@@ -1,0 +1,169 @@
+@font-face {
+    font-family: "Lexend";
+    src: url("/assets/fonts/lexend.ttf");
+}
+
+:root {
+    --color-body-bg: white;
+
+    --color-text-fg: black;
+    --color-tag-fg: var(--color-text-fg);
+    --color-logo-fg: var(--color-text-fg);
+
+    --color-red: #ffaaaa;
+    --color-green: #aaffaa;
+    --color-blue: #a8d8f8;
+    --color-yellow: #ffff55;
+
+    --block-border-style: solid;
+    --block-border-width: 2px;
+    --block-border-color: black;
+    --block-border-radius: 4px;
+
+    --padding-small: 0.2em;
+    --padding-medium: 0.3em;
+    --padding-big: 0.4em;
+}
+
+body {
+    font-family: "Lexend", sans-serif;
+    margin: auto;
+    max-width: 80ch;
+    background: var(--color-body-bg);
+    padding: 1em;
+}
+
+header {
+    margin-bottom: 2em;
+}
+
+h1 {
+    display: inline-block;
+    background: var(--color-yellow);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lexend", sans-serif;
+    font-weight: 900;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0em;
+
+    /* Reduce top margin of elements that come right after a heading */
+    & + * {
+        margin-top: 0.5em;
+    }
+}
+
+p {
+    text-align: justify;
+}
+a {
+    color: var(--color-text-fg);
+}
+
+nav a {
+    padding: 0 var(--padding-small);
+    text-decoration: none;
+    transition: font-weight 0.1s;
+    margin-right: 0.5em;
+    background: var(--color-red);
+}
+
+nav a:hover {
+    font-weight: bolder;
+    transition: font-weight 0.2s;
+}
+
+p:has(small) {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+}
+
+img {
+    max-width: 100%;
+    border-width: 4px;
+    border-style: var(--block-border-style);
+    border-color: var(--block-border-color);
+    border-radius: var(--block-border-radius);
+}
+
+table {
+    border-collapse: collapse;
+}
+table td,
+table th {
+    padding: 0.3em;
+    border: 1px solid var(--color-text-fg);
+}
+
+blockquote {
+    background: var(--color-quote-bg);
+    border-left: 0.4em solid #ccc;
+    margin: 0.5em 0;
+    padding: 0.5em 1em;
+    border-radius: var(--block-border-radius);
+}
+
+blockquote p {
+    margin: 0;
+    padding: 0;
+}
+
+time {
+    background: var(--color-green);
+}
+
+article {
+    margin-bottom: 2em;
+
+    time {
+        font-size: 0.8em;
+    }
+}
+
+/* Common */
+h1,
+nav a,
+time {
+    border-style: var(--block-border-style);
+    border-width: var(--block-border-width);
+    border-color: var(--block-border-color);
+    border-radius: var(--block-border-radius);
+    padding: var(--padding-small);
+}
+
+/* inverted selection colors */
+::selection {
+    color: var(--color-body-bg);
+    background-color: var(--color-text-fg);
+}
+
+.footnote-definition-label::before,
+.footnote-reference::before {
+    content: "[";
+    color: red;
+    font-weight: bold;
+}
+
+.footnote-definition-label::after,
+.footnote-reference::after {
+    content: "]";
+    color: red;
+    font-weight: bold;
+}
+
+.footnote-definition p {
+    display: inline-block;
+    margin: 0 0 0 0.2em;
+}

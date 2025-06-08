@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title></title>
+    <link rel="self" type="application/atom+xml" href="https://stigsen.dev/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://stigsen.dev"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-06-08T00:00:00+00:00</updated>
+    <id>https://stigsen.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Fixing Ideapad MediaTek Wi-Fi on Linux</title>
+        <published>2025-06-08T00:00:00+00:00</published>
+        <updated>2025-06-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Benjamin Stigsen
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://stigsen.dev/notes/fixing-ideapad-mediatek-wifi-connection-on-linux/"/>
+        <id>https://stigsen.dev/notes/fixing-ideapad-mediatek-wifi-connection-on-linux/</id>
+        
+        <content type="html" xml:base="https://stigsen.dev/notes/fixing-ideapad-mediatek-wifi-connection-on-linux/">&lt;p&gt;If you run the command &lt;code&gt;rfkill&lt;&#x2F;code&gt; you may see something like the following:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;ID TYPE      DEVICE                 SOFT      HARD
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; 0 wlan      ideapad_wlan        blocked unblocked
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; 1 bluetooth ideapad_bluetooth   blocked unblocked
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; ...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you see that the WLAN device is soft-blocked, this is currently preventing you from using Wi-Fi.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;temporary-solution&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#temporary-solution&quot; aria-label=&quot;Anchor link for: temporary-solution&quot;&gt;Temporary Solution&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;To temporarily unblock the Wi-Fi device, you can run the following command&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;sudo rfkill unblock wlan
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;permanent-solution&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#permanent-solution&quot; aria-label=&quot;Anchor link for: permanent-solution&quot;&gt;Permanent Solution&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;To permanently unblock the your network device, you can add the following line to &lt;code&gt;&#x2F;etc&#x2F;modprobe.d&#x2F;blacklist.conf&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;blacklist ideapad_laptop
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Just create the file &lt;code&gt;&#x2F;etc&#x2F;modprobe.d&#x2F;blacklist.conf&lt;&#x2F;code&gt; if it doesn&#x27;t exist. Then restart your system.&lt;&#x2F;p&gt;
+&lt;p&gt;After a restart, you can verify that the Wi-Fi device is unblocked by running the command &lt;code&gt;rfkill&lt;&#x2F;code&gt; again. It should now be possible for you to use &lt;code&gt;wpa_supplicant&lt;&#x2F;code&gt;, &lt;code&gt;iwctl&lt;&#x2F;code&gt;, &lt;code&gt;NetworkManager&lt;&#x2F;code&gt; or any other networking management tool&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;&#x2F;strong&gt; You may also have to enable the &lt;code&gt;dbus&lt;&#x2F;code&gt; service.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;askubuntu.com&#x2F;a&#x2F;678653&quot;&gt;https:&#x2F;&#x2F;askubuntu.com&#x2F;a&#x2F;678653&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;askubuntu.com&#x2F;a&#x2F;1168636&quot;&gt;https:&#x2F;&#x2F;askubuntu.com&#x2F;a&#x2F;1168636&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Ten Days of Silent Meditation</title>
+        <published>2025-01-25T00:00:00+00:00</published>
+        <updated>2025-01-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Benjamin Stigsen
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://stigsen.dev/blog/ten-days-of-silent-meditation/"/>
+        <id>https://stigsen.dev/blog/ten-days-of-silent-meditation/</id>
+        
+        <content type="html" xml:base="https://stigsen.dev/blog/ten-days-of-silent-meditation/">&lt;p&gt;In February 2024 I travelled to Sweden, where I meditated for 100 hours in silence, during the course of 10 days.&lt;&#x2F;p&gt;
+&lt;p&gt;In 2023 while scrolling through YouTube, I was recommended a video called &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=0oLWuS4ZI80&quot;&gt;&quot;I Meditated in Silence For 10 Days&quot;&lt;&#x2F;a&gt;. Having been interested in psychology, philosophy and mindfulness since childhood, this video piqued my interest. I watched some of the video and was introduced to the term &quot;Vipassana&quot;. I bookmarked the video as it seemed interesting and forgot about it.&lt;&#x2F;p&gt;
+&lt;p&gt;Six months later I was doing a digital cleanup, where I cleared all of my bookmarks. During this process I stumbled upon the video again. After looking at the Vipassana website, I was very surprised to not only learn that a course was entirely free, but also that they offered 1, 3, 10, 30 or 60 day courses. Having wanted to go on similar retreats for a long time, I decided I may as well do it now. 10 days seemed ideal, it wouldn&#x27;t disrupt my computer science studies too much, but it would also give me a better idea of the experience, unfortunately it was impossible for me to find any 10 day courses in Denmark. The closest one was in Sweden, having never taken public transport myself this actually made me nervous, but I figured it was time to get over that fear. February 5th I sent a message to my friends, family and teachers, saying that they wouldn&#x27;t be able to contact me for a while.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;travel&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#travel&quot; aria-label=&quot;Anchor link for: travel&quot;&gt;Travel&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;At five in the morning, I was waiting for the train in Central Jutland, Herning. Three hours later I was in Aalborg, where I had 3 minutes to run from the train station to the bus station. I continued north towards Frederikshavn, where I boarded the ferry going to Gothenburg in Sweden. Now it was official.&lt;&#x2F;p&gt;
+&lt;p&gt;While travelling I wrote in my journal about the fears, expectations and motivations for this journey. It seemed intuitive to meditate while travelling, so I did though I knew that it was very late to start preparing for the 10 days... I knew they weren&#x27;t going to be easy.&lt;&#x2F;p&gt;
+&lt;p&gt;A couple of hours went by and then I arrived in Gothenburg. Having booked a small room in a hostel, I started walking towards it, for a place to rest and stay the night.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001168.jpg&quot; alt=&quot;Church in Gothenburg&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001170.jpg&quot; alt=&quot;Hostel&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The room was nice and simple, I was getting ready to rest. Apparently though I had a roommate. He came in with headphones on, though the audio was so loud it sounded like regular speakers. As day became night he walked in and out of the room. 3:15 he opened a bag of chips, I gave up. 3:30 in the morning I was now wandering the streets of Gothenburg. It was quite lovely.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001176.jpg&quot; alt=&quot;Street&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001185.jpg&quot; alt=&quot;Center of Gothenburg&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I didn&amp;#39;t pack food for multiple days though, and as I had to take a train later, I needed some sort of breakfast. A couple of kilometers away from the hostel, there was a McDonalds which was open 24 hours a day.&lt;&#x2F;p&gt;
+&lt;p&gt;After walking some more, at 5:15 in the morning I found myself at the Gothenburg Centralstation, where I waited for my train to Mjölby.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001187.jpg&quot; alt=&quot;Gothenburg Centralstation&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Four hours later at 9:15, I was now in Mjölby, it was freezing cold with a lot of snow. The travel wasn&amp;#39;t done yet though. At 14:15 a bus would arrive to pick people up for transportation to the Vipassana center. So I needed something to do. Being tired from a lack of sleep and cold from the Swedish weather conditions, I was looking for some place to stay, ideally without paying as I didn&amp;#39;t have a lot of money. Not being able to find a library, my eyes turned to the church. I went inside, sat on a bench and listened to a woman practicing her vocals for an hour or two. I couldn&amp;#39;t resist the temptation to lay down and take a nap, one hour later I woke up in the church and decided to get lunch at a chinese buffet nearby.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001193.jpg&quot; alt=&quot;Mjölby Church&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I started walking towards the bus stop, quickly being greeted by other Danish people. The bus ended up not having space for all of us, so I and four other people stayed behind and waited an hour to be picked up by another bus. We were now driving towards the Vipassana centre.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001201.jpg&quot; alt=&quot;Bus&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;At 16:10 we arrived.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001205.jpg&quot; alt=&quot;Vipassana Center&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#&quot; aria-label=&quot;Anchor link for: &quot;&gt;Arrival&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;We went inside to the main building, giving away our phones, jewelry, books, headsets and more, to dedicate the next 10 days fully to the experience. They gave out small flyers with the daily schedule, which looked like this:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;Time&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;04:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Wake-Up Bell&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;04:30 - 06:30&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Meditate (in the hall or in the room)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;06:30 - 08:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Breakfast&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;08:00 - 09:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Meditate (in the hall)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;09:00 - 11:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Meditate (in the hall or in the room, decided by teacher)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;11:00 - 12:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Lunch&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;12:00 - 13:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Rest or conversation with the teacher&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;13:00 - 14:30&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Meditate (in the hall or in the room)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;14:30 - 15:30&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Meditate (in the hall)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;15:30 - 17:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Meditate (in the hall or in the room, decided by teacher)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;17:00 - 18:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Tea&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;18:00 - 19:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Meditate (in the hall)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;19:00 - 20:15&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Conversation with the teacher&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;20:15 - 21:00&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Meditate (in the hall)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;21:00 - 21:30&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Questions for the teacher&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;21:30&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;Lights out&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;The flyer also contained The Code of Discipline:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All who attend a Vipassana course must conscientiously undertake the following five precepts for the duration of the course:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;to abstain from killing any being;&lt;&#x2F;li&gt;
+&lt;li&gt;to abstain from stealing;&lt;&#x2F;li&gt;
+&lt;li&gt;to abstain from all sexual activity;&lt;&#x2F;li&gt;
+&lt;li&gt;to abstain from telling lies;&lt;&#x2F;li&gt;
+&lt;li&gt;to abstain from all intoxicants.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;There are three additional precepts which old students (that is, those who have completed a course with S.N. Goenka or one of his assistant teachers) are expected to follow during the course:&lt;&#x2F;p&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;to abstain from eating after midday;&lt;&#x2F;li&gt;
+&lt;li&gt;to abstain from sensual entertainment and bodily decorations;&lt;&#x2F;li&gt;
+&lt;li&gt;to abstain from using high or luxurious beds.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;This was going to be interesting.&lt;&#x2F;p&gt;
+&lt;p&gt;All participants (100+ people) were assigned a room in one of the gender-segregated buildings. I went to my room, prepared my bed, clothes and so on, whereby shortly after my roomate for the next 10 days entered. We spoke a little, he was from Stockholm.&lt;&#x2F;p&gt;
+&lt;p&gt;A couple of hours later the bell &#x2F; gong was rung, which signaled that we should be going towards the meditation hall. Each of us had our own place to sit in the meditation hall, with our own pillows and blankets. The men sat on the left side with green blankets, women sat on the right side with white blankets. Two people entered the room at the very front, and sat on some tables raised above us all. Those were our teachers, one male and one female.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001223.jpg&quot; alt=&quot;Meditation Hall Outside&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001219.jpg&quot; alt=&quot;Meditation Hall Inside&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;We sat down and waited in silence, a recording was started of the teacher &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;S._N._Goenka&quot;&gt;S.N. Goenka&lt;&#x2F;a&gt;. I almost started laughing as I&amp;#39;m sure many others did. The recording started with S.N. Goenka humming and singing in his own unique way.&lt;&#x2F;p&gt;
+&lt;p&gt;He explained that for the next ten days we would be challenged mentally and physically. Some of us will want to quit day two and six he warned. We were told that when we leave this room, we were to avoid all forms of communication, unless it was completely necessary. No talking, gestures or eye-contact. We did the first meditation with our eyes closed, and we ended the session with a mantra, sending vibrations through the entire hall, it felt magical. We all stood up, headed to our room in silence and went to sleep.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;-1&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#-1&quot; aria-label=&quot;Anchor link for: -1&quot;&gt;Anapana&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;February 7th I woke up at 3:00... laying in bed I contemplated the challenge that was ahead, waiting, daydreaming. An hour went by and the morning bell was struck, I got out of bed, took a short shower and went to the meditation hall.&lt;&#x2F;p&gt;
+&lt;p&gt;Most who have meditated will have tried Anapana meditation, where you focus on the breath, every inhale and exhale. This is similar to how we started. If we imagine a triangle from each corner of the mouth to the point between the top of the nose, this was the area we were to focus on. We closed our eyes and observed sensations caused by the breath, that popped up within that area. Whether it was the cold air on the nostrils or the breath hitting the hair above the lip. We were told to notice it and focus on it. Like any type of meditation with intentional focus, a major obstacle is met immediately... the inability to focus. One moment you&amp;#39;re looking for a sensation, the next moment you catch yourself in a daydream, that you&amp;#39;ve been thinking about for the last five minutes. &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=cYG5VvHry7c&amp;amp;index=2&quot;&gt;&amp;quot;The Monkey Mind&amp;quot;&lt;&#x2F;a&gt; as Goenka called it. Your mind starts wandering off again, but noticing the sensations gets quicker and easier.&lt;&#x2F;p&gt;
+&lt;p&gt;Instructions were given by an audio recording of Goenka speaking English. Then a Danish recording would play right after, explaining it again. There&amp;#39;d be long periods of silence, at times interrupted by Goenka humming, singing or reminding us what this journey is about.&lt;&#x2F;p&gt;
+&lt;p&gt;After two hours of noticing physical sensations and training one&amp;#39;s focus, it was time for breakfast. Each person was given a specific seat, this is where we ate our meals each day. Breakfast always had some porridge with raisins, seeds, tea, honey, bread and butter. No coffee was allowed. Like most other people, when I was done eating I engaged in one of three main activities... resting in my room, taking a walk in the Swedish nature or meditated some more. A large section of the forest was marked with colored tape, we were not allowed to leave the area. There were two marked areas in the forest, one for men and one for women.&lt;&#x2F;p&gt;
+&lt;p&gt;After the break we meditated some more, sometimes in our own room, at other times in the meditation hall. At one point we&amp;#39;d have lunch, usually some hot vegan meal. Later we&amp;#39;d also have a tea break, which for new students (like me) included some fruit. Older students were only offered tea.&lt;&#x2F;p&gt;
+&lt;p&gt;During one of the meditation sessions, our names were called one by one, in groups of four. One of the teachers, would call the name of four students, followed by four of us sitting down in front of the teacher, being asked questions about the location of the physical sensations and the intensity. After that we return to our seats or go back to our room. This was repeated until every student had sat in front of the teacher. After that the other teacher would repeat the process, for the opposite gender.&lt;&#x2F;p&gt;
+&lt;p&gt;Each day would end with a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=cz7QHNvNFfA&amp;amp;list=PLPJVlVRVmhc4Z01fD57jbzycm9I6W054x&quot;&gt;video recording of Goenka talking&lt;&#x2F;a&gt; about the day, the challenge that lies ahead, as well as thoughts and stories about his personal life, Buddhism, health and more. He&amp;#39;d often make most of us laugh, with his funny stories and jokes.&lt;&#x2F;p&gt;
+&lt;p&gt;This was the daily structure, ten hours of meditation every day, two meals, one tea break and one hour of dedicated rest time.&lt;&#x2F;p&gt;
+&lt;p&gt;As we kept practicing, we were instructed to narrow our focus. So instead of a triangle from the corners of the mouth to the nose bridge, we&amp;#39;d now focus on the upper lip and nostrils, noticing any sensation within this area. This was then later changed to focus &lt;em&gt;only&lt;&#x2F;em&gt; on the upper lip.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;-2&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#-2&quot; aria-label=&quot;Anchor link for: -2&quot;&gt;Vipassana&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;The first couple of days laid the groundwork, where we practiced narrowing our focus and observing the tiny physical sensations caused by the breath. But now we started scanning our body from head to toe, very slowly, following the instructions as given by Goenka. First we focused on the top of our head, waiting until we felt a physical sensation, whether it was temperature, itching, pain, sweat or any other physical sensation. What&amp;#39;s interesting is that as one scans down the body, it&amp;#39;s still possible to feel some of the sensations observed earlier. So even though I was now scanning my left arm, I could still feel some of the sensations on the top of my head. We kept moving our focus down, covering more and more of the body in these sensations. It felt pleasant.&lt;&#x2F;p&gt;
+&lt;p&gt;As we reached our toes, having covered a lot of our body in sensations, Goenka told us to move our focus back to the top of the head... this was it. Everything dissappared, my entire existence. Vibrations were radiating from the top of my head throughout my entire body. I could feel myself shaking, but my body was gone. The entire universe was taken over by vibrations, I felt content. As our physical body was disintegrating in this sensory explosion, Goenka said &amp;quot;there is no past, there is no future, there is only Vipassana&amp;quot;. We opened our eyes, the meditation session was done. Several people started crying and laughing. The experience was bliss.&lt;&#x2F;p&gt;
+&lt;p&gt;Now came the next major challenge, the purpose of several philosophies, religions and Vipassana. To reduce suffering. As humans we have a tendency to repeat positive experiences to chase the same effects as before, while also avoiding negative experiences. We are addicts, constantly seeking positive emotions, feelings and physical sensations. In Vipassana this is the foundation of all suffering, craving. We repeated the process of scanning our body, but now it was with the goal of noticing the sensations, while not trying to force them and without attaching ourselves emotionally to whether they feel good or bad. Noticing uncomfortable sensations like pain and itching, accepting that they&amp;#39;re there and taking note of the sensations.&lt;&#x2F;p&gt;
+&lt;p&gt;A day or two after the first Vipassana experience, it was about to become much harder. We now had three sessions each day with &amp;quot;Iron Will&amp;quot;, where we&amp;#39;d sit in a certain position, and try not to move for the rest of the session... and let me tell you, if you&amp;#39;re not used to this it starts to hurt. I could feel pain in my knees, hips, back and more. We were to repeat the bodyscan from head to toe, while trying not to assign a negative label to a sensation, even the places where it was hurting. What&amp;#39;s interesting is that as one starts to notice the pain, and focus on it will all intent, it starts to transform into something else. So I&amp;#39;d notice some pain in the back, and I&amp;#39;d focus on it. As I focus on it, I&amp;#39;m able to narrow my focus to where it hurts the most within that pain. As I continue to do this, I start to feel the heat from the blood rushing to that spot. So I start focusing on where I feel the most heat... and as I do this I begin to feel the pulse below the heat. As you reach this state, the pain is gone. It is now just intense heat, a pulse or if you get deep enough, vibrations. That is at least until you lose focus, at which point it becomes pain again.&lt;&#x2F;p&gt;
+&lt;p&gt;At this point we were also told to integrate awareness&#x2F;mindfulness into everything we did. As we took walks outside, feel the sensations from the air, from each step you take, notice the sounds, sights and smells. We were to feel the texture of what we ate, the taste of what we drink, to brush our teeth with intent. Everything was to be observed.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a quote from the Vietnamese Buddhist monk Thich Nhat Hanh, which encapsulates the essence of &amp;quot;mindfulness&amp;quot; quite well:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Drink your tea slowly and reverently, as if it is the axis on which the world earth revolves – slowly, evenly, without rushing toward the future. Live the actual moment. Only this moment is life.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;As we were nearing the end of the course, the weather reflected the journey in a way I can only describe as &amp;quot;symbolic&amp;quot;. Throughout the entire course it was cloudy and cold with snow on the ground. But not today, the snow was melting and the sun was peeking through the clouds. As we waited for lunch, we all stood in a long line, facing the sun, feeling the heat on our face.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;1000001231.jpg&quot; alt=&quot;Meditation Center (Sunny)&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;As we reached the end of the course, we ended it with a meditation of love, wishing peace and well-being to all living things. It was neatly tied together by ending it the same way we started, with a mantra sending vibrations throughout the entire meditation hall. We were now allowed to talk, but only when we had left the meditation hall.&lt;&#x2F;p&gt;
+&lt;p&gt;The main building had a rideshare board on the wall, where a person was driving to Denmark, which I asked if I could join. I talked a bit with my roommate from Stockholm, as well as other people about the experience. One person said &amp;quot;have a good life&amp;quot; when they were leaving, a lot of us found this quite funny and used the phrase for the rest of the day, to wish eachother goodbye.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;-3&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#-3&quot; aria-label=&quot;Anchor link for: -3&quot;&gt;Roadtrip&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;I was now in a car with four strangers from the course, one of which had been a volunteer at the Vipassana center for three months. Over the next 8 hours or so, we talked about meditation, shadow work, drugs, ice-baths and much more. We went to eat and go shopping, then we continued the journey home. Three people got off at Copenhagen, then it was just me and the driver (Emil) until we reached Odense, from which I&amp;#39;d continue home by train.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;-4&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#-4&quot; aria-label=&quot;Anchor link for: -4&quot;&gt;Reflection&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;One of the first things I was asked by other people, was if I&amp;#39;d go on a Vipassana journey again, to which I responded &amp;quot;no&amp;quot; with certainty. But with time having passed, my opinion has changed. Not only would I like to do it again, but I&amp;#39;d like to do it for even longer, like a month or two.&lt;&#x2F;p&gt;
+&lt;p&gt;A lot of the recordings by Goenka made references to rebirth and more, which makes sense as the practice is built on a Buddhist foundation. I do not personally believe in every reason or effect for certain parts of the practice, but as Goenka himself mentioned, it wasn&amp;#39;t required to believe all of it, in order to gain value from it.&lt;&#x2F;p&gt;
+&lt;p&gt;Meditation has become a bigger part of my life, though it&amp;#39;s mostly Anapana with a focus on the breath. I find myself to be mindful when I walk, eat, exercise and everything else.&lt;&#x2F;p&gt;
+&lt;p&gt;Here&amp;#39;s a map of the journey:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;stigsen.dev&#x2F;blog&#x2F;ten-days-of-silent-meditation&#x2F;.&#x2F;images&#x2F;map.png&quot; alt=&quot;Travel Map&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Red&lt;&#x2F;strong&gt; = From Denmark to Sweden.&lt;br &#x2F;&gt;
+&lt;strong&gt;Purple&lt;&#x2F;strong&gt; = From Sweden to Denmark.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Go SQL Database Thread Safety</title>
+        <published>2024-11-21T00:00:00+00:00</published>
+        <updated>2024-11-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Benjamin Stigsen
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://stigsen.dev/notes/go-database-thread-safety/"/>
+        <id>https://stigsen.dev/notes/go-database-thread-safety/</id>
+        
+        <content type="html" xml:base="https://stigsen.dev/notes/go-database-thread-safety/">&lt;p&gt;Making use of &lt;code&gt;sql.DB&lt;&#x2F;code&gt; from multiple goroutines is safe, since Go manages
+its own internal mutex.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DB is a database handle representing a pool of zero or more underlying connections.
+&lt;strong&gt;It&#x27;s safe for concurrent use by multiple goroutines.&lt;&#x2F;strong&gt;&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;blob&#x2F;go1.23.3&#x2F;src&#x2F;database&#x2F;sql&#x2F;sql.go#L509&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;blob&#x2F;go1.23.3&#x2F;src&#x2F;database&#x2F;sql&#x2F;sql.go#L509&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;pkg.go.dev&#x2F;database&#x2F;sql@go1.23.3#DB&quot;&gt;https:&#x2F;&#x2F;pkg.go.dev&#x2F;database&#x2F;sql@go1.23.3#DB&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Enabling HTTPS in a Go Application</title>
+        <published>2024-11-21T00:00:00+00:00</published>
+        <updated>2024-11-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Benjamin Stigsen
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://stigsen.dev/notes/https-webserver-in-go/"/>
+        <id>https://stigsen.dev/notes/https-webserver-in-go/</id>
+        
+        <content type="html" xml:base="https://stigsen.dev/notes/https-webserver-in-go/">&lt;p&gt;If you don&#x27;t want to use a reverse proxy like Caddy or Nginx, you can add
+HTTPS support directly to your Go application, using the module &lt;code&gt;certmagic&lt;&#x2F;code&gt;, developed by
+the people behind the Caddy server project.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;setup&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#setup&quot; aria-label=&quot;Anchor link for: setup&quot;&gt;Setup&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Install the &lt;code&gt;certmagic&lt;&#x2F;code&gt; module: &lt;code&gt;go get github.com&#x2F;caddyserver&#x2F;certmagic&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Write your code:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;go&quot; class=&quot;language-go z-code&quot;&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-keyword z-other z-package z-go&quot;&gt;package&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;main&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-keyword z-other z-import z-go&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;	&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;flag&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;	&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;net&#x2F;http&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;	&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;github.com&#x2F;caddyserver&#x2F;certmagic&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-storage z-type z-keyword z-function z-go&quot;&gt;func&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-function z-go&quot;&gt;main&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;	&lt;span class=&quot;z-variable z-declaration z-go&quot;&gt;production&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-go&quot;&gt;:=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;flag&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;Bool&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;production&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-language z-go&quot;&gt;false&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;run in production mode (https)&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;	&lt;span class=&quot;z-variable z-other z-go&quot;&gt;flag&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;Parse&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;	&lt;span class=&quot;z-variable z-other z-go&quot;&gt;http&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;HandleFunc&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-keyword z-function z-go&quot;&gt;func&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-go&quot;&gt;res&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;http&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-storage z-type z-go&quot;&gt;ResponseWriter&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-go&quot;&gt;req&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-go&quot;&gt;*&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;http&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-storage z-type z-go&quot;&gt;Request&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;		&lt;span class=&quot;z-variable z-other z-go&quot;&gt;res&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;Write&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-begin z-go&quot;&gt;[&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-end z-go&quot;&gt;]&lt;&#x2F;span&gt;&lt;span class=&quot;z-storage z-type z-go&quot;&gt;&lt;span class=&quot;z-support z-type z-builtin z-go&quot;&gt;byte&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Hello World!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;	&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;	&lt;span class=&quot;z-keyword z-control z-go&quot;&gt;if&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-go&quot;&gt;*&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;production&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;		&lt;span class=&quot;z-variable z-function z-go&quot;&gt;&lt;span class=&quot;z-support z-function z-builtin z-go&quot;&gt;println&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Running webserver in production&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;		&lt;span class=&quot;z-variable z-other z-go&quot;&gt;certmagic&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;DefaultACME&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;Email&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-go&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;email@website.com&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-comment z-line z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-go&quot;&gt;&#x2F;&#x2F;&lt;&#x2F;span&gt; optional but recommended
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;		&lt;span class=&quot;z-variable z-other z-go&quot;&gt;certmagic&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;HTTPS&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-begin z-go&quot;&gt;[&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-end z-go&quot;&gt;]&lt;&#x2F;span&gt;&lt;span class=&quot;z-storage z-type z-go&quot;&gt;&lt;span class=&quot;z-support z-type z-builtin z-go&quot;&gt;string&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;website.com&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;http&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;DefaultServeMux&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;	&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-go&quot;&gt;else&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;		&lt;span class=&quot;z-variable z-function z-go&quot;&gt;&lt;span class=&quot;z-support z-function z-builtin z-go&quot;&gt;println&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Running webserver on http:&#x2F;&#x2F;localhost:8080&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;		&lt;span class=&quot;z-variable z-other z-go&quot;&gt;http&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;ListenAndServe&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;localhost:8080&lt;span class=&quot;z-punctuation z-definition z-string z-end z-go&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;http&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;DefaultServeMux&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;	&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To run the HTTP server with TLS&#x2F;HTTPS enabled:&lt;br &#x2F;&gt;
+&lt;code&gt;go run main.go -production&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;&#x2F;strong&gt; Unless you have it set up by other means, &lt;code&gt;certmagic&lt;&#x2F;code&gt; does not support HTTPS on &lt;code&gt;localhost&lt;&#x2F;code&gt;.&lt;br &#x2F;&gt;
+&lt;strong&gt;Note:&lt;&#x2F;strong&gt; Multiple Go applications running on the same port will panic. In this case use a reverse-proxy.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;caddyserver&#x2F;certmagic#readme&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;caddyserver&#x2F;certmagic#readme&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>How to Effectively Trap Your Customers</title>
+        <published>2024-06-29T00:00:00+00:00</published>
+        <updated>2024-06-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Benjamin Stigsen
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://stigsen.dev/blog/how-to-effectively-trap-your-customers/"/>
+        <id>https://stigsen.dev/blog/how-to-effectively-trap-your-customers/</id>
+        
+        <content type="html" xml:base="https://stigsen.dev/blog/how-to-effectively-trap-your-customers/">&lt;p&gt;You own an insurance company well-known and widely used in Denmark. Your insurance company is also the parent company of a smaller insurance company.&lt;&#x2F;p&gt;
+&lt;p&gt;The smaller company is known for being affordable (especially for students), having a user-friendly app, being transparent about pricing, and clearly showing what injuries and damages are covered. Customers can cancel their insurance at any time directly from the app. The customer support is friendly and responds quickly. Customers love and respect the transparency as well as the ease of use.&lt;&#x2F;p&gt;
+&lt;p&gt;It doesn&#x27;t seem practical to have two separate insurance companies, so your parent company decides to take ownership of the smaller company and merge them together.&lt;&#x2F;p&gt;
+&lt;p&gt;Your parent company has higher pricing, so all customers of the smaller company will be moved to this higher price, which means some customers will pay more than twice what they did before. As the systems need to be merged, the new coverage plans will start for transferred customers on July 1st. This merger incurs some costs and technically involves registering with a new insurance company, so customers will be charged a bit more in the first month, like a registration fee.&lt;&#x2F;p&gt;
+&lt;p&gt;Not all customers were aware of the price increase or the registration fee. Some customers want to cancel their insurance plan. While this can be done from the website, it isn&#x27;t possible to cancel before July 1st because the insurance hasn&#x27;t technically started yet, so the first month&#x27;s payment is required.&lt;&#x2F;p&gt;
+&lt;p&gt;Customers are unhappy, but since they can cancel after the first payment, it&#x27;s not the worst situation. However, this isn&#x27;t very profitable for your company, so you&#x27;ll require a cancellation fee, which will be quite high for newer customers who haven&#x27;t had the insurance for at least a year.&lt;&#x2F;p&gt;
+&lt;p&gt;This fee may seem high, especially to students and people on welfare, but to mitigate this, you notified customers about the increased price. Some of them received this message more than a month before the increase, while others received it only a couple of days before. Some customers may still want to avoid the increased price, registration fee, and cancellation fee; they can do so by calling customer support.&lt;&#x2F;p&gt;
+&lt;p&gt;Due to the dissatisfaction, the queue for customer support might be very long, with over 100 or 200 customers. The wait time can be impractical for students or working people, who will likely call in the afternoon. Some customers may wait around two hours, dropping from 180th to 65th in the queue. Due to common cellphone carrier behavior, some customers are disconnected automatically after two hours. When the customers call back, their spot in the queue isn&#x27;t saved, so they end up at the back of the line again, unable to reach customer support before it closes.&lt;&#x2F;p&gt;
+&lt;p&gt;Luckily, it is possible to contact customer support on Saturdays. Some customers will try to do this, but for reasons unknown, they&#x27;ll remain the first person in the queue for more than 30 minutes, wondering if there&#x27;s a problem with the system. Not to worry, though, you&#x27;ve planned for inconveniences like this and made the system tell the customers to press 1 if they want to be called back, so they don&#x27;t have to wait. It just so happens that some customers wait for several hours without being called at all. This is worrying to some of them, as this is the last day they have to cancel before the insurance becomes active on Monday. So they call again. The system lets them know that their phone number is already registered and that they&#x27;ll be called back soon, so the customer decides to hang up and wait some more. Now it&#x27;s getting late, and time is running out, so the customer decides to call again, becoming number 14 in the queue. If they&#x27;re lucky, it&#x27;ll take them about about 70 minutes of waiting, to get through to a kind service worker, where they request to have their insurance plan cancelled. The worker, having taken many calls from the transferring customers, cancels immediately without any cancellation fee. This conversation takes less than a minute.&lt;&#x2F;p&gt;
+&lt;p&gt;All the negative press made you nervous. However, after a bit of thinking, you weren&#x27;t so worried anymore because you realized that your insurance company, Tryg, would be just fine.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Optimizing My Finances as a Student</title>
+        <published>2024-06-22T00:00:00+00:00</published>
+        <updated>2024-07-09T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Benjamin Stigsen
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://stigsen.dev/blog/optimizing-my-finances-as-a-student/"/>
+        <id>https://stigsen.dev/blog/optimizing-my-finances-as-a-student/</id>
+        
+        <content type="html" xml:base="https://stigsen.dev/blog/optimizing-my-finances-as-a-student/">&lt;p&gt;This is what my monthly finances looked like a couple of months ago:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;Amount (DKK)&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;+5.800&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;income&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-3.035&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;rent&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-250&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;insurance (health + apartment)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-200&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;business account (lunar)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-170&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;internet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-110&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;gym&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-58&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mobile insurance&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-42&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;webserver&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-40&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;domains (4 domains) (namecheap)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-19&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mobile data plan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-14&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;geoguessr&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-8&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mail (posteo)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;Total Expenses:&lt;&#x2F;strong&gt; 3.946 DKK&#x2F;month (47.352 DKK&#x2F;yr)&lt;br &#x2F;&gt;
+&lt;strong&gt;Total Available:&lt;&#x2F;strong&gt; 1.854 DKK&#x2F;month (22.248 DKK&#x2F;yr)&lt;&#x2F;p&gt;
+&lt;p&gt;After expenses, I would have around 1.850 DKK every month for groceries and everything else. One thing the list above doesn&#x27;t include, however, is non-fixed expenses like cigarettes. A pack was bought every 2-3 days (we&#x27;ll say every 2.5 days), which ends up being around 720 DKK&#x2F;month &lt;strong&gt;(~40% of the remaining money!)&lt;&#x2F;strong&gt;. And that&#x27;s not including social events where I&#x27;d buy even more. The amount I have left is much lower than before:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Total Available:&lt;&#x2F;strong&gt; 1.134 DKK&#x2F;month (13.608 DKK&#x2F;year)&lt;&#x2F;p&gt;
+&lt;p&gt;A lot of the expenses would also go to fast-food. Let&#x27;s say pizza five times a month (sometimes even more often &lt;em&gt;*sigh*&lt;&#x2F;em&gt;). With delivery (as it pretty much always is), that&#x27;s 635 DKK.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Total Available:&lt;&#x2F;strong&gt; 499 DKK&#x2F;month (5.988 DKK&#x2F;year)&lt;&#x2F;p&gt;
+&lt;p&gt;So now you may be wondering, how is that enough to buy groceries? &lt;em&gt;It isn&#x27;t&lt;&#x2F;em&gt;. I had some freelance work on the side, earning me quite a good sum of money, but let me put it this way... I don&#x27;t have anything saved up... like, at all. My spending habits are terrible, but that freelance work (which I barely do anymore) was &lt;em&gt;almost&lt;&#x2F;em&gt; enough to keep me going 90% of the time. But for those 10%, usually at the end of the month, I&#x27;d borrow a bit from my parents.&lt;&#x2F;p&gt;
+&lt;p&gt;This is a real &lt;em&gt;&lt;strong&gt;problem&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt;. Unable to save up for when I have to move out of student housing, and driven by my craving for simplicity, I decided to do something about it.&lt;&#x2F;p&gt;
+&lt;p&gt;Here is what my expenses look like now:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;Amount (DKK)&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;+5.800&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;income&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-3.035&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;rent&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-250&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;insurance (health + apartment)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-170&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;internet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-42&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;webserver&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-19&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mobile data plan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-7&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;domain (porkbun)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-6&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mail (migadu + student discount)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;Total Expenses:&lt;&#x2F;strong&gt; 3.529 DKK&#x2F;month (42.348 DKK&#x2F;year) &lt;strong&gt;(10% decrease)&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+&lt;strong&gt;Total Available:&lt;&#x2F;strong&gt; 2.271 DKK&#x2F;month (27.252 DKK&#x2F;year) &lt;strong&gt;(22% increase)&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I removed expenses like mobile insurance, closed my business account that I don&#x27;t use anymore, and turned off renewal for domain names except for the one currently in use. Since I don&#x27;t go to the gym anymore, it seems unhelpful to keep the subscription active.&lt;&#x2F;p&gt;
+&lt;p&gt;I also moved my mail account from Posteo to Migadu and the website domain from Namecheap to Porkbun, both of which are cheaper than the previous.&lt;&#x2F;p&gt;
+&lt;p&gt;Right now, I&#x27;m in the middle of removing my web server, as I really only need static site hosting, which is offered for free by GitHub. This saves me around 504 DKK every year.&lt;&#x2F;p&gt;
+&lt;p&gt;This is the list after those changes:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;Amount (DKK)&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;+5.800&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;income&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-3.035&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;rent&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-250&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;insurance (health + apartment)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-170&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;internet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-19&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mobile data plan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-7&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;domain (porkbun)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-6&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mail (migadu + student discount)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;From 11 to 6 expenses.&lt;&#x2F;p&gt;
+&lt;p&gt;So how much do cigarettes take up now? None! As of writing this, I&#x27;m about to reach 90 days nicotine-free.&lt;&#x2F;p&gt;
+&lt;p&gt;The biggest issue currently is my relationship with fast food, and there are a couple of things I can do about it:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Don&#x27;t buy it&lt;&#x2F;li&gt;
+&lt;li&gt;Order it less&lt;&#x2F;li&gt;
+&lt;li&gt;Buy cheaper fast food&lt;&#x2F;li&gt;
+&lt;li&gt;Pick up in person (~30% cheaper)&lt;&#x2F;li&gt;
+&lt;li&gt;Make use of lunch offers (~25% cheaper)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This may be another blog post for the future.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;update-2024-07-04&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#update-2024-07-04&quot; aria-label=&quot;Anchor link for: update-2024-07-04&quot;&gt;Update: 2024-07-04&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;My &lt;a href=&quot;&#x2F;blog&#x2F;how-to-effectively-trap-your-customers&#x2F;&quot;&gt;insurance was raising its prices by 2.25x&lt;&#x2F;a&gt;, which made a lot of people (including me) very unhappy.&lt;&#x2F;p&gt;
+&lt;p&gt;Since then, I have changed my insurance to something even cheaper, but with better coverage. Instead of paying 250 DKK&#x2F;month, it&#x27;s now closer to 225 DKK&#x2F;month, saving me 300 DKK&#x2F;year.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Total Expenses:&lt;&#x2F;strong&gt; 3.462 DKK&#x2F;month (41.544 DKK&#x2F;year) &lt;strong&gt;(12% decrease)&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+&lt;strong&gt;Total Available:&lt;&#x2F;strong&gt; 2.338 DKK&#x2F;month (28.056 DKK&#x2F;year) &lt;strong&gt;(26% increase)&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;update-2024-07-09&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#update-2024-07-09&quot; aria-label=&quot;Anchor link for: update-2024-07-09&quot;&gt;Update: 2024-07-09&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;As my internet provider also happens to be doubling its prices, I&#x27;ve changed to a different provider, which is even cheaper.&lt;&#x2F;p&gt;
+&lt;p&gt;Instead of paying 170 DKK&#x2F;month, I&#x27;ll now be paying 150 DKK&#x2F;month, saving me 240 DKK&#x2F;year.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;Amount (DKK)&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;+5.800&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;income&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-3.035&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;rent&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-225&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;insurance (health + apartment)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-150&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;internet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-19&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mobile data plan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-7&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;domain (porkbun)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;-6&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;mail (migadu + student discount)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;Total Expenses:&lt;&#x2F;strong&gt; 3.442 DKK&#x2F;month (41.304 DKK&#x2F;year) &lt;strong&gt;(13% decrease)&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+&lt;strong&gt;Total Available:&lt;&#x2F;strong&gt; 2.358 DKK&#x2F;month (28.296 DKK&#x2F;year) &lt;strong&gt;(27% increase)&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
