@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         {% include 'head.html' %}
@@ -9,17 +9,13 @@
 
         <main>
             {% if not page.extra.hide_title %}
-                <h2>{{ page.title }}</h2>
-            {% endif %}
-
-            {% if page.date %}
-                <p><span class="block green">{{ page.date }}</span></p>
-            {% endif %}
-
-            {{ page.content | safe }}
+            <h2>{{ page.title }}</h2>
+            {% endif %} {% if page.date %}
+            <time datetime="{{ page.date }}">{{ page.date }}</time>
+            {% endif %} {{ page.content | safe }}
         </main>
 
-        <br>
+        <br />
 
         {% include 'footer.html' %}
     </body>

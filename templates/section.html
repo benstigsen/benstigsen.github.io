@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         {% include 'head.html' %}
@@ -8,20 +8,16 @@
         {% include 'header.html' %}
 
         <main>
-            {{ section.content | safe }}
-
-            {% if section.pages %}
-                {% for page in section.pages %}
-                    <div class="page-entry">
-                        <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
-                        <p><small>{{ page.description }}</small></p>
-                        <p><small><b class="block green">{{ page.date }}</b></small></p>
-                    </div>
-                {% endfor %}
-            {% endif %}
+            {{ section.content | safe }} {% if section.pages %} {% for page in section.pages %}
+            <article>
+                <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+                <p><small>{{ page.description }}</small></p>
+                <time datetime="{{ page.date }}">{{ page.date }}</time></small>
+            </article>
+            {% endfor %} {% endif %}
         </main>
 
-        <br>
+        <br />
 
         {% include 'footer.html' %}
     </body>
