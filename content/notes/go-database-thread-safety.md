@@ -1,6 +1,6 @@
 +++
 title = "Go SQL Database Thread Safety"
-description = "It is safe by default to use sql.DB from multiple goroutines."
+description = "Is safe to use sql.DB from multiple goroutines?"
 date = 2024-11-21
 insert_anchor_links = "heading"
 
